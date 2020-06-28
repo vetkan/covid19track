@@ -1,4 +1,4 @@
-import sqlite
+import sqlite3
 
 
 class schema:
@@ -25,4 +25,14 @@ class schema:
         self.conn.execute(query)
 
     def create_user_table(self):
-        pass
+
+        query = """
+        CREATE TABLE IF NOT EXISTS "user" (
+            id INTEGER PRIMARY KEY,
+            name TEXT,
+            mailid TEXT,
+            createdon DATE DEFAULT CURRENT_DATE
+        );
+        """
+
+        self.conn.execute(query)
